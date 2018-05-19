@@ -1,0 +1,49 @@
+{
+  "name": "hf-scripter",
+  "version": "1.0.0",
+  "description": "Allows visually adding scripts to entities.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-old": "webpack-dev-server --watch --progress --open",
+    "dev": "npm run build && http-serve ./dist/ -c-1",
+    "build": "concurrently \"npm run build-webui\" \"npm run build-client\" \"npm run copy-assets\"",
+    "build-webui": "webpack --config ./web-ui/webpack.config.js -p",
+    "build-client": "webpack --config ./hifi-script/webpack.config.js -p",
+    "copy-assets": "cpy hf-scripter-client.js tableticon.svg ./dist/"
+  },
+  "author": "jjv360",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
+    "concurrently": "^3.5.1",
+    "cpy-cli": "^1.0.1",
+    "css-loader": "^0.28.11",
+    "es3ify-loader": "^0.2.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "http-serve": "^1.0.1",
+    "offline-plugin": "^5.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^2.5.6",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "react-toolbox": "^2.0.0-beta.12",
+    "promise-polyfill": "^7.1.2",
+    "uuid": "^3.2.1",
+    "hf-ui": "file:../HF UI"
+  }
+}
