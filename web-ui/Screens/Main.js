@@ -39,7 +39,7 @@ export default class Main extends React.Component {
             <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: 80, display: "flex", alignItems: "center", backgroundColor: "#222", background: "linear-gradient(#2b2b2b, #1e1e1e)" }}>
 
                 {/* Icon */}
-                <img src={require("./Main.icon.svg")} style={{ margin: 32, height: 32, }} />
+                <img src={require("./Main.icon.svg")} style={{ margin: 32, height: 32, }} onClick={e => location.reload()} />
 
                 {/* Text */}
                 <div>

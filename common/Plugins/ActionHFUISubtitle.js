@@ -57,7 +57,7 @@ export default class ActionHFUISubtitle extends BasePlugin {
 
         // Get text, break up long lines
         var text = this.option("text")
-        text = wordWrap(text, 120)
+        text = wordWrap(text, 100)
 
         // Create text label
         this.overlay = new Label()
@@ -69,13 +69,33 @@ export default class ActionHFUISubtitle extends BasePlugin {
         this.overlay.backgroundColor = { red: 0, green: 4, blue: 8 }
         this.overlay.backgroundAlpha = 0.75
         this.overlay.font = { size: 17 }
-        this.overlay.text = text
+        this.overlay.text = ""
         this.overlay.leftMargin = 10
         this.overlay.topMargin = 10
         this.overlay.show()
 
         // Start timer to remove the element, if needed
         this.removeTimer = Script.setTimeout(this.removeOverlay.bind(this), 30 * 1000)
+
+        // Create a loop to display each character one at a time
+        var numChars = 0
+        var textTimer = 0
+        var overlay = this.overlay
+        textTimer = Script.setInterval(e => {
+
+            // Add another char
+            numChars += 1
+
+            // Check if done
+            if (numChars > text.length) {
+                Script.clearInterval(textTimer)
+                return
+            }
+
+            // Set text
+            overlay.text = text.substring(0, numChars)
+
+        }, 1000 / 30)
 
     }
 

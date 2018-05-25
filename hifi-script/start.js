@@ -111,6 +111,22 @@ export default class MyEntity extends LocalEntity {
 
     }
 
+    /** Called when the user clicks up on an entity */
+    clickReleaseOnEntity(id) {
+
+        // Pass on event to all plugins
+        this.passEvent("clickReleaseOnEntity", id)
+
+    }
+
+    /** Called when the user clicks up on an entity. This includes controllers as well. */
+    mousePressOnEntity(id, event) {
+
+        // Pass on event to all plugins
+        this.passEvent("mousePressOnEntity", id, event)
+
+    }
+
     /** Executes a script. This is called by a Trigger plugin. @returns Promise resolved to final action's output. */
     executeScript(script, triggerOutput) {
 

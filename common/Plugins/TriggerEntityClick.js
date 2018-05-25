@@ -18,9 +18,10 @@ export default class TriggerEntityClick extends BasePlugin {
     static get pluginIcon() { return "mouse" }
 
     /** HF event: Clicking on the entity */
-    clickDownOnEntity(id) {
+    mousePressOnEntity(id) {
 
         // Check if ours
+        print("Mouse press! " + id + " ours " + this.localEntity.id)
         if (id != this.localEntity.id)
             return
 

@@ -9,7 +9,7 @@
 
     // Link to your app's HTML file
     // var APP_URL = "http://localhost:8080"
-    var APP_URL = "https://jjv360.s3.amazonaws.com/hifi/hf-scripter"
+    var APP_URL = "https://s3.amazonaws.com/jjv360/hifi/hf-scripter"
 
     // Get a reference to the tablet
     var tablet = Tablet.getTablet("com.highfidelity.interface.tablet.system");
