@@ -174,4 +174,24 @@ export default class MyEntity extends LocalEntity {
 
     }
 
+    /** Defines which functions are remotely callable by the client entity script */
+    get remotelyCallable() { return ["clientRequestForServer"] }
+
+    /** Called by clients when they are requesting a server action */
+    clientRequestForServer(entityID, _args) {
+
+        // Decode args
+        var args = JSON.parse(_args[0])
+        print(`[HF Scripter] Server entity script received request from client! Info = ` + JSON.stringify(args))
+
+        // Get plugin
+        var plugin = Plugins.withID(args.plugin)
+        if (!plugin)
+            return print(`[HF Scripter] No plugin found! ${args.plugin}`)
+
+        // Call action
+        plugin.onServerAction(this, args.data)
+
+    }
+
 }

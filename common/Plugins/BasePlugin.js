@@ -66,4 +66,15 @@ export default class BasePlugin {
 
     }
 
+    /** Triggers a server action */
+    triggerServer(payload) {
+
+        // Send request
+        Entities.callEntityServerMethod(this.localEntity.id, "clientRequestForServer", [JSON.stringify({
+            plugin: this.constructor.pluginID,
+            data: payload
+        })])
+
+    }
+
 }

@@ -20,6 +20,10 @@ export default class TriggerEnterEntity extends BasePlugin {
     /** HF event: Leaving the entity */
     leaveEntity(id) {
 
+        // Stop on server
+        if (Script.isEntityServerScript())
+            return
+
         // Check if ours
         if (id != this.localEntity.id)
             return

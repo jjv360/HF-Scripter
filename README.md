@@ -20,7 +20,7 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
 ## Features
 
 - [x] Client entity scripts
-- [ ] Server entity scripts
+- [x] Server entity scripts
 - [x] Visual editor
   - [x] Create/edit/delete scripts
   - [x] Select trigger and actions
@@ -32,6 +32,7 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
   - [x] On user leaves entity
   - [x] On user clicks entity
   - [ ] Interaction key ("press E to use" type thing, for making first-person games)
+  - [x] On broadcast message
 - [x] Actions
   - [x] Alert
   - [x] Announcement message
@@ -40,4 +41,5 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
   - [x] Display subtitle text
   - [x] Log to console
   - [x] Overlay message (useful for zone titles etc)
-  - [ ] Change entity properties
+  - [x] Change entity properties
+  - [x] Send broadcast message

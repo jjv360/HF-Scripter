@@ -107,7 +107,10 @@
         // Re-attach script
         Entities.editEntity(event.entityID, { script: "" })
         Script.setTimeout(function() {
-            Entities.editEntity(event.entityID, { script: APP_URL + "/hifi-scripter.min.js" })
+            Entities.editEntity(event.entityID, {
+                script: APP_URL + "/hifi-scripter.min.js",
+                serverScripts: APP_URL + "/hifi-scripter.min.js"
+            })
         }, 250)
 
     }

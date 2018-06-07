@@ -20,6 +20,10 @@ export default class TriggerEntityClick extends BasePlugin {
     /** HF event: Clicking on the entity */
     mousePressOnEntity(id) {
 
+        // Stop on server
+        if (Script.isEntityServerScript())
+            return
+
         // Check if ours
         print("Mouse press! " + id + " ours " + this.localEntity.id)
         if (id != this.localEntity.id)

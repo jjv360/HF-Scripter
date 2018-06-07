@@ -1,0 +1,3 @@
+[submodule "HF-UI"]
+	path = HF-UI
+	url = https://github.com/jjv360/HF-UI.git

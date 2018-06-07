@@ -17,6 +17,10 @@ export default class TriggerOnLoad extends BasePlugin {
     /** HF event: On load */
     preload(id) {
 
+        // Stop on server
+        if (Script.isEntityServerScript())
+            return
+
         // Fire trigger
         this.triggerCallback()
 

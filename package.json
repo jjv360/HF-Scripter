@@ -44,6 +44,6 @@
     "react-toolbox": "^2.0.0-beta.12",
     "promise-polyfill": "^7.1.2",
     "uuid": "^3.2.1",
-    "hf-ui": "file:../HF UI"
+    "hf-ui": "file:./HF-UI"
   }
 }

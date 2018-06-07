@@ -20,6 +20,10 @@ export default class TriggerEnterEntity extends BasePlugin {
     /** HF event: On load */
     preload(id) {
 
+        // Stop on server
+        if (Script.isEntityServerScript())
+            return
+
         // Check if the user is already inside the entity
         var zoneProps = this.localEntity.getProperties(["position", "dimensions"])
         if (MyAvatar.position.x > zoneProps.position.x - zoneProps.dimensions.x/2 && MyAvatar.position.x < zoneProps.position.x + zoneProps.dimensions.x/2
@@ -35,6 +39,10 @@ export default class TriggerEnterEntity extends BasePlugin {
 
     /** HF event: Entering the entity */
     enterEntity(id) {
+
+        // Stop on server
+        if (Script.isEntityServerScript())
+            return
 
         // Check if ours
         if (id != this.localEntity.id)
