@@ -16,34 +16,58 @@ export default class BasePlugin {
         // Get it
         var value = this.options[name]
 
-        // If not a string, just return it
-        if (typeof value != "string")
-            return value
+        // If a string, check for variables
+        if (typeof value == "string") {
 
-        // Replace variables
-        while (true) {
+            // Replace variables
+            while (true) {
 
-            // Find index of ${
-            var startIdx = value.indexOf("${")
-            if (startIdx == -1)
-                break
+                // Find index of ${
+                var startIdx = value.indexOf("${")
+                if (startIdx == -1)
+                    break
 
-            // Find end index
-            var endIdx = value.indexOf("}")
-            if (endIdx == -1)
-                break
+                // Find end index
+                var endIdx = value.indexOf("}")
+                if (endIdx == -1)
+                    break
 
-            // Get variable
-            var varName = value.substring(startIdx + 2, endIdx)
-            var varValue = this.variable(varName)
+                // Get variable
+                var varName = value.substring(startIdx + 2, endIdx)
+                var varValue = this.variable(varName)
 
-            // Replace it
-            value = value.substring(0, startIdx) + varValue + value.substring(endIdx + 1)
+                // Replace it
+                value = value.substring(0, startIdx) + varValue + value.substring(endIdx + 1)
+
+            }
 
         }
 
-        // Done
-        return value
+        // Check option type
+        var fieldInfo = this.constructor.fields.find(f => f.id == name)
+        if (!fieldInfo) {
+
+            // Plugin passed an option name they didn't register in the `fields` array.
+            print(`[HF Scripter] Plugin option not found in fields array: ${name}`)
+            return value
+
+        } else if (fieldInfo.type == "boolean") {
+
+            // Boolean field, convert value
+            if (typeof value == "string") value = value.toLowerCase()
+            return !value || value == "false" || value == "off" || value == "no" || value == "0" ? false : true
+
+        } else if (fieldInfo.type == "number") {
+
+            // Number field, convert value
+            return parseFloat(value) || 0
+
+        } else {
+
+            // String field
+            return value
+
+        }
 
     }
 

@@ -25,7 +25,10 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
   - [x] Create/edit/delete scripts
   - [x] Select trigger and actions
   - [x] Text input fields
+  - [ ] Flow diagram UI
   - [ ] Entity ID input field
+  - [ ] Boolean fields
+  - [ ] Number fields
 - [x] Triggers
   - [x] On entity load
   - [x] On user enters entity
@@ -43,3 +46,4 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
   - [x] Overlay message (useful for zone titles etc)
   - [x] Change entity properties
   - [x] Send broadcast message
+  - [x] Play sounds

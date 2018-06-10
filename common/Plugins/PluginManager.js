@@ -19,6 +19,7 @@ class PluginManager {
         this.add(require("./ActionInstallInterfaceScript").default)
         this.add(require("./ActionLog").default)
         this.add(require("./ActionPrompt").default)
+        this.add(require("./ActionPlayAudio").default)
         this.add(require("./ActionSendMessage").default)
         this.add(require("./TriggerLeaveEntity").default)
         this.add(require("./TriggerEnterEntity").default)

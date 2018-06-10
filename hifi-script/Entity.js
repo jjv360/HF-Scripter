@@ -15,6 +15,23 @@ export default class Entity {
         return Entities.getEntityProperties(this.id, names)
     }
 
+    /** Get a specific property */
+    getProperty(name) {
+        return this.getProperties([name])[name]
+    }
+
+    /** Set a specific property */
+    setProperty(name, value) {
+        var obj = {}
+        obj[name] = value
+        this.setProperties(obj)
+    }
+
+    /** Set multiple properties */
+    setProperties(newProps) {
+        Entities.editEntity(this.id, newProps)
+    }
+
     /** Fetch user data object, or a single field if specified */
     getUserData(field) {
 

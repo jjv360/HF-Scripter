@@ -22,7 +22,9 @@ export default class TriggerOnLoad extends BasePlugin {
             return
 
         // Fire trigger
-        this.triggerCallback()
+        Script.setTimeout(e => {
+            this.triggerCallback()
+        }, 1)
 
     }
 
