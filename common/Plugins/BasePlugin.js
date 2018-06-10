@@ -62,9 +62,14 @@ export default class BasePlugin {
             // Number field, convert value
             return parseFloat(value) || 0
 
+        } else if (fieldInfo.type == "string") {
+
+            // String field, convert value
+            return value || ""
+
         } else {
 
-            // String field
+            // Unknown field type, just return it
             return value
 
         }
@@ -81,12 +86,25 @@ export default class BasePlugin {
             // Get user's name
             return Account.username || "User"
 
+        } else if (name == "input") {
+
+            // Get previous action's input
+            return this.lastActionInput
+
         } else {
 
-            // Unkown variable
-            return "<???>"
+            // Unkown variable, return value from the variable storage
+            return this.localEntity.variables[name]
 
         }
+
+    }
+
+    /** Called in High Fidelity when this action is triggered. Return a Promise. */
+    onTrigger(prevValue) {
+
+        // Store input
+        this.lastActionInput = prevValue
 
     }
 

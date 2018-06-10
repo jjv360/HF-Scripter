@@ -3,7 +3,7 @@
 
 import BasePlugin from './BasePlugin'
 
-export default class ActionEditEntity extends BasePlugin {
+export default class ActionPlayAudio extends BasePlugin {
 
     /** Plugin ID */
     static get pluginID() { return "com.jjv360.actions.PlayAudio" }

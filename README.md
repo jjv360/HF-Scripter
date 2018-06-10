@@ -47,3 +47,9 @@ https://jjv360.s3.amazonaws.com/hifi/hf-scripter/hf-scripter-client.js
   - [x] Change entity properties
   - [x] Send broadcast message
   - [x] Play sounds
+  - [x] Toggle boolean variable
+  - [x] Edit entity user data properties
+- [x] Variables
+  - [x] `${<var-name>}` : State variable
+- [x] Miscellaneous
+  - [ ] Compress script properties to allow more actions per entity

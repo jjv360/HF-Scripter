@@ -64,7 +64,7 @@ export default class Entity {
         userData[field] = value
 
         // Update entity
-        Entities.editEntity(this.id, JSON.stringify(userData))
+        Entities.editEntity(this.id, { userData: JSON.stringify(userData) })
 
     }
 

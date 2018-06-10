@@ -9,7 +9,7 @@ export default class ActionIf extends BasePlugin {
     static get pluginID() { return "com.jjv360.actions.If" }
 
     /** Plugin name */
-    static get pluginName() { return "Stop if..." }
+    static get pluginName() { return "Continue only if..." }
 
     /** Plugin type */
     static get pluginType() { return "action" }
@@ -19,14 +19,18 @@ export default class ActionIf extends BasePlugin {
 
     /** Configurable fields */
     static get fields() { return [
-        { id: "value", name: "Stop if previous output is not" },
+        { id: "varname", name: "Variable" },
+        { id: "value", name: "Continue only if value is" },
     ]}
 
     /** Called in High Fidelity when this action is triggered. Return a Promise. */
     onTrigger(prevValue) {
+        super.onTrigger(prevValue)
 
         // Compare
-        if (prevValue != this.option("value"))
+        var value = this.variable(this.option("varname") || "input")
+        var check = this.option("value")
+        if (value != check)
             throw "cancelled"
 
         // Continue

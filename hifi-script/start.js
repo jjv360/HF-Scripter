@@ -37,6 +37,9 @@ export default class MyEntity extends LocalEntity {
         print("HiFi Scripter: Preload")
         this.unloaded = false
 
+        // Create variable storage
+        this.variables = {}
+
         // Get scripts
         this.scripts = this.getUserData("scripterScripts") || []
 
@@ -165,7 +168,12 @@ export default class MyEntity extends LocalEntity {
         var action = script.actions[actionIndex]
 
         // Trigger action plugin, wait for completion
-        return Promise.resolve(action.plugin.onTrigger(previousOutput)).then(output => {
+        return Promise.resolve(true).then(e => {
+
+            // Run action
+            return action.plugin.onTrigger(previousOutput)
+
+        }).then(output => {
 
             // Step complete, run next step
             return this.executeScriptAction(script, actionIndex + 1, output)
