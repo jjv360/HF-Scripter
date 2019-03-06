@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/status-stale-orange.svg)
+
 # High Fidelity: Scripter
 
 This is a point and click script editor for [High Fidelity](https://highfidelity.com).
